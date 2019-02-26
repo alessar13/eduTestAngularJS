@@ -1,0 +1,2 @@
+# eduTestAngularJS
+AngularJS educational project
