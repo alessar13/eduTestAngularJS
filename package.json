@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/alessar13/eduTestAngularJS#readme",
   "dependencies": {
+    "@types/angular": "^1.6.54",
     "angular": "^1.6.4"
   },
   "devDependencies": {

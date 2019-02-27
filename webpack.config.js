@@ -4,7 +4,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/ts/index.ts',
+  entry: './app/app-module.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
