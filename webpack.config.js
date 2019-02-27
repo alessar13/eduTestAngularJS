@@ -22,8 +22,13 @@ module.exports = {
           'sass-loader'
         ]
       },
-      { test: /\.tsx?$/, 
+      {
+        test: /\.tsx?$/,
         loader: "ts-loader" 
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       }
     ],
   },
