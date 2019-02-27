@@ -1,15 +1,22 @@
 {
     "compilerOptions": {
-    "target": "es2015",
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "strict": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "declaration": true,
-    "outDir": "../dist",
-    "declarationDir": "../dist/types"
-    }
+        "target": "es2015",
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "strict": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "outDir": "../dist",
+        "declarationDir": "../dist/types"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
 }
