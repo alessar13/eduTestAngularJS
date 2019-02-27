@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;    
+    background-color: red;
+}
+.wrapper{
+    display:flex;
+    flex-wrap: wrap;
+    flex: 0 1 35%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    
+}
+
+    .elements,.outputArea{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 1 100%;
+        background: black;
+        outline: 1px solid black;
+    }
+    .outputArea{
+        height: 60px;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 3em;
+        color:white;
+        padding:0 5%;
+    }
+
+    .elements {
+        justify-content: space-between;
+        padding: 2%;
+    }
+        .element{
+            display: flex;
+            flex: 0 1 22%;
+            justify-content: center;
+            align-items: center;
+            height: 8rem;
+            font-size: 2em;
+            border-radius: 50%;
+            margin-top: 2%;
+        }
+
+            button {
+                border: 0;
+                outline: none;
+            }
+
+            .control {
+                background-color: grey;
+            }
+
+            .operator {
+                background-color: orange;
+                color: white;
+            }
+
+            .number {
+                background-color: rgb(77, 72, 72);
+                color: white;
+            }
+
+            .wide{
+                flex-grow: 2;
+                max-width: 48%;
+                justify-content: flex-start;
+                padding-left: 8.5%;
+                border-radius: 50px;
+            }
+
+
+/* @media screen and (min-width: 400px) {
+    .element:not(.wide){
+            flex: 0 1 25%;
+            border-radius: 0;
+            outline: 1px solid black;
+            margin-top: 0;
+            margin-right: 0;
+    }
+
+    .wide {
+        border-radius: 0; 
+        margin-top: 0;
+        margin-right: 0;
+        outline: 1px solid black;
+    }
+
+    .elements {
+        padding: 0.5vh;
+    }
+
+    .wide{
+        /* padding-left: 10.2%; */
+
+
+/* @media screen and (min-width: 500px) and (max-width: 900px) {
+    .element:not(.wide){
+        flex: 0 1 25%;
+        border-radius: 0;
+        outline: 1px solid black;
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    .wide {
+        border-radius: 0; 
+        margin-top: 0;
+        margin-right: 0;
+        outline: 1px solid black;
+    }
+
+    .elements {
+        padding: 0.5vh;
+    }
+
+    .wide{
+        padding-left: 10.2%;
+    }
+} */
+
+/* @media screen and (min-width: 900px) and (max-width: 2800px) {
+    .wide{
+        padding-left: 11.5%;
+    }
+} */ 

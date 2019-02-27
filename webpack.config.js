@@ -2,11 +2,15 @@ const webpack = require('webpack');
 const path = require('path');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
-const config = {
-  entry: './src/index.js',
+module.exports = {
+  mode: 'development',
+  entry: './src/ts/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
   },
   module: {
     rules: [
@@ -17,8 +21,11 @@ const config = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      { test: /\.tsx?$/, 
+        loader: "ts-loader" 
       }
-    ]
+    ],
   },
   plugins: [
     new LodashModuleReplacementPlugin

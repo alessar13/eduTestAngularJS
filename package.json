@@ -4,7 +4,10 @@
   "description": "AngularJS educational project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "server": "node_modules/.bin/webpack-dev-server",
+    "start": "concurrently \"webpack --watch\"  \"npm run server\" "
   },
   "repository": {
     "type": "git",
@@ -20,14 +23,20 @@
     "angular": "^1.6.4"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "css-loader": "^2.1.0",
     "lodash": "^4.17.11",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3333",
     "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-typescript-builder": "^3.0.1"
   }
 }
