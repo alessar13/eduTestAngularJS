@@ -14,15 +14,35 @@ export default class CalculatorController {
 		$scope.pendingValue = null;
 		$scope.lastOperation = null;
 
-		// let ADD = '+';
-		// let ADD = '+';
-		// let ADD = '+';
-		// let ADD = '+';
+		// Constants
+		let ADD = "adding";
+		let SUBTRACT = "subtracting";
+		// let MULTIPLY = 'multiplying';
+		// let DIVIDE = 'dividing';
+		let ADD_TOKEN = "+";
+		let SUBTRACT_TOKEN = "-";
+		// let MULTIPLY_TOKEN = '*';
+		// let DIVIDE_TOKEN = '/';
+
+		$scope.setOperationToken = function(operation: any) {
+			if(operation == ADD) {
+				$scope.operationToken = ADD_TOKEN;
+			} else if (operation == SUBTRACT) {
+				$scope.operationToken = SUBTRACT_TOKEN;
+			} else {
+				$scope.operationToken = "";
+			}
+		};
+
+		$scope.setOutput = function(outputString: any) {
+			$scope.output = outputString;
+			$scope.newNumber = true;
+		};
 		
 
 		$scope.reset = function(){ 
 			this.output = '0'; 
-			$scope.runningTotal = null;
+			  $scope.runningTotal = null;
     		$scope.pendingValue = null;
     		$scope.pendingOperation = null;
 		}
@@ -31,13 +51,25 @@ export default class CalculatorController {
 			return ($scope.output > 0 && $scope.output != 0) ? $scope.output *= -1 : $scope.output = Number (Math.abs($scope.output));
 			}
 	
-		$scope.percentCount  = () => {console.log('percent')}
-
-		$scope.multiply = () => {
-				
-			}
-		$scope.add = () => {console.log('add')}
-		$scope.divide = () => {console.log('divide')}
+		
+		$scope.add = () => {
+			if($scope.pendingValue) {  
+				if($scope.runningTotal && $scope.pendingOperation == ADD ) {
+					$scope.runningTotal += $scope.pendingValue;
+				} else if ($scope.runningTotal && $scope.pendingOperation == SUBTRACT ) {
+					$scope.runningTotal -= $scope.pendingValue;
+				}
+				else {
+					$scope.runningTotal = $scope.pendingValue;
+				}
+			} 
+		$scope.setOperationToken(ADD);
+		$scope.setOutput(String($scope.runningTotal));
+		$scope.pendingOperation = ADD;
+		$scope.newNumber = true;
+		$scope.pendingValue = null;
+		}
+		
 		
 		$scope.subtract = () => {
 			if($scope.pendingValue) {
@@ -50,12 +82,11 @@ export default class CalculatorController {
 				}
 			}
 
-			// setOperationToken('-');
-			
-			// setOutput(String($scope.runningTotal));
-			// 	$scope.pendingOperation = '-';
-			// 	$scope.newNumber = true;
-			// 	$scope.pendingValue = null;
+			$scope.setOperationToken('-');
+			$scope.setOutput(String($scope.runningTotal));
+				$scope.pendingOperation = '-';
+				$scope.newNumber = true;
+				$scope.pendingValue = null;
 		}
 		
 		$scope.comma = (comma: String) => {
@@ -73,28 +104,58 @@ export default class CalculatorController {
 			$scope.pendingValue = Number($scope.output);
 		};
 
-		$scope.equals = () => {console.log('Govinda')}
+		$scope.percentCount  = () => {console.log('percent')}
+		$scope.divide = () => {console.log('divide')}
+		$scope.multiply = () => {
+				
+			}
 
+			$scope.toNumber = function(numberString: any) {
+				let result = 0;
+				if(numberString) {
+						result = numberString*1;
+						}	
+					return result;
+			};
 
+			
 
-	// 	setOperationToken = function(operation) {
-	// 		if(operation == '+') {
-	// 		  $scope.operationToken = ADD_TOKEN;
-	// 		} else if (operation == SUBTRACT) {
-	// 		  $scope.operationToken = SUBTRACT_TOKEN;
-	// 		} else {
-	// 		  $scope.operationToken = "";
-	// 		}
-	// 	  };
-		
-		
-	// }
-	
+	$scope.calculate = function() {
+	  if(!$scope.newNumber) {
+		$scope.pendingValue = Number($scope.output);
+		$scope.lastValue = $scope.pendingValue;
+	  } 
+	  if($scope.pendingOperation == ADD) {
+		$scope.runningTotal += $scope.pendingValue;
+		$scope.lastOperation = ADD;
+	  } else if($scope.pendingOperation == SUBTRACT) {
+		$scope.runningTotal -= $scope.pendingValue;
+		$scope.lastOperation = SUBTRACT;
+	  } else {
+		if($scope.lastOperation) {
+		  if($scope.lastOperation == ADD) {
+			if($scope.runningTotal) {
+			  $scope.runningTotal += $scope.lastValue;
+			} else {
+			  $scope.runningTotal = 0;
+			}
+		  } else if($scope.lastOperation == SUBTRACT) {
+			if($scope.runningTotal) {
+			  $scope.runningTotal -= $scope.lastValue;
+			} else {
+			  $scope.runningTotal = 0;
+			}
+		  }
+		} else {
+		  $scope.runningTotal = 0;
+		}
+	  }
+	  $scope.setOutput($scope.runningTotal);
+	  $scope.setOperationToken();
+	  $scope.pendingOperation = null;
+	  $scope.pendingValue = null;
+	};
+
+	}	
 
 }
-
-
-
-
-
-
