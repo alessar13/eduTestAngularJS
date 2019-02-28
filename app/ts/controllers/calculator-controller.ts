@@ -5,8 +5,7 @@ export default class CalculatorController {
 	]
 	
 	constructor(private $scope: any) {
-		console.log('calculator controller init');
-		$scope.name = 'dsadsa';
+		
 		$scope.output = '0';
 		$scope.newNumber = true;
 		$scope.pendingOperation = null;
@@ -14,9 +13,19 @@ export default class CalculatorController {
 		$scope.runningTotal = null;
 		$scope.pendingValue = null;
 		$scope.lastOperation = null;
+
+		// let ADD = '+';
+		// let ADD = '+';
+		// let ADD = '+';
+		// let ADD = '+';
 		
 
-		$scope.reset = ()=> { $scope.output = '0'; }
+		$scope.reset = function(){ 
+			this.output = '0'; 
+			$scope.runningTotal = null;
+    		$scope.pendingValue = null;
+    		$scope.pendingOperation = null;
+		}
 
 		$scope.changeSign = () => {
 			return ($scope.output > 0 && $scope.output != 0) ? $scope.output *= -1 : $scope.output = Number (Math.abs($scope.output));
@@ -24,10 +33,30 @@ export default class CalculatorController {
 	
 		$scope.percentCount  = () => {console.log('percent')}
 
-		$scope.multiply = () => {console.log('multiply')}
+		$scope.multiply = () => {
+				
+			}
 		$scope.add = () => {console.log('add')}
 		$scope.divide = () => {console.log('divide')}
-		$scope.subtract = () => {console.log('subtract')}
+		
+		$scope.subtract = () => {
+			if($scope.pendingValue) {
+				if($scope.runningTotal && ($scope.pendingOperation == '−') ) {
+				   	 $scope.runningTotal -= $scope.pendingValue;
+				} else if($scope.runningTotal && $scope.pendingOperation == '+' ) {
+				  	  $scope.runningTotal += $scope.pendingValue;
+				} else {
+				 	   $scope.runningTotal = $scope.pendingValue;
+				}
+			}
+
+			// setOperationToken('-');
+			
+			// setOutput(String($scope.runningTotal));
+			// 	$scope.pendingOperation = '-';
+			// 	$scope.newNumber = true;
+			// 	$scope.pendingValue = null;
+		}
 		
 		$scope.comma = (comma: String) => {
 			if ($scope.output == '0') { 
@@ -45,9 +74,21 @@ export default class CalculatorController {
 		};
 
 		$scope.equals = () => {console.log('Govinda')}
+
+
+
+	// 	setOperationToken = function(operation) {
+	// 		if(operation == '+') {
+	// 		  $scope.operationToken = ADD_TOKEN;
+	// 		} else if (operation == SUBTRACT) {
+	// 		  $scope.operationToken = SUBTRACT_TOKEN;
+	// 		} else {
+	// 		  $scope.operationToken = "";
+	// 		}
+	// 	  };
 		
 		
-	}
+	// }
 	
 
 }
