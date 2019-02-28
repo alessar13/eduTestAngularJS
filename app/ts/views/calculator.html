@@ -1,24 +1,26 @@
-<div class="outputArea">0</div>
 
-<div class="elements" ng-controller="calculatorController">
-    <button class="element control" ng-click="">AC</button>
-    <button class="element control" ng-click="">+/-</button>
-    <button class="element control" ng-click="">%</button>
-    <button class="element operator" ng-click="">÷</button>
-    <button class="element number" ng-click="">7</button>
-    <button class="element number" ng-click="">8</button>
-    <button class="element number" ng-click="">9</button>
-    <button class="element operator" ng-click="">×</button>
-    <button class="element number" ng-click="">4</button>
-    <button class="element number" ng-click="">5</button>
-    <button class="element number" ng-click="">6</button>
-    <button class="element operator" ng-click="">−</button>
-    <button class="element number" ng-click="">1</button>
-    <button class="element number" ng-click="">2</button>
-    <button class="element number" ng-click="">3</button>
-    <button class="element operator" ng-click="">+</button>
-    <button class="element number wide" ng-click="">0</button>
-    <button class="element number" ng-click="">,</button>
-    <button class="element operator" ng-click="">=</button>
+<div class="outputArea">{{output}}</div>
+
+<div class="elements">
+    <button name="AC" class="element control" value="AC" ng-click="reset()">AC</button>
+    <button name="plusMinus" class="element control" value="+/-" ng-click="changeSign()">+/-</button>
+    <button name="precent" class="element control" value="%" ng-click="percentCount()">%</button>
+    <button name="divide" class="element operator" value="÷" ng-click="divide()">÷</button>
+    <button name="7" class="element number" value="7" ng-click="outputUpdate(7)">7</button>
+    <button name="8" class="element number" value="8" ng-click="outputUpdate(8)">8</button>
+    <button name="9" class="element number" value="9" ng-click="outputUpdate(9)">9</button>
+    <button name="multiply" class="element operator" value="×" ng-click="multiply()">×</button>
+    <button name="4" class="element number" value="4" ng-click="outputUpdate(4)">4</button>
+    <button name="5" class="element number" value="5" ng-click="outputUpdate(5)">5</button>
+    <button name="6" class="element number" value="6" ng-click="outputUpdate(6)">6</button>
+    <button name="subtract" class="element operator" value="−" ng-click="subtract()">−</button>
+    <button name="1" class="element number" value="1" ng-click="outputUpdate(1)">1</button>
+    <button name="2" class="element number" value="2" ng-click="outputUpdate(2)">2</button>
+    <button name="3" class="element number" value="3" ng-click="outputUpdate(3)">3</button>
+    <button name="add" class="element operator" value="+" ng-click="add()"">+</button>
+    <button name="0" class="element number wide" value="0" ng-click="outputUpdate(0)">0</button>
+    <button name="comma" class="element number" value="," ng-click="comma(',')">,</button>
+    <button name="equal" class="element operator" value="=" ng-click="equals()">=</button>
+    
 </div>
 
