@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --watch",
     "server": "node_modules/.bin/webpack-dev-server",
-    "start": "concurrently \"webpack --watch\"  \"npm run server --watch\" "
+    "start": "concurrently \"npm run build\"  \"npm run server --watch\" "
   },
   "repository": {
     "type": "git",
@@ -26,14 +26,16 @@
   "devDependencies": {
     "concurrently": "^4.1.0",
     "css-loader": "^2.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-loader": "^0.5.5",
     "lodash": "^4.17.11",
     "lodash-webpack-plugin": "^0.11.5",
+    "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.10",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "html-loader": "^0.5.5",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.5",

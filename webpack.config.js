@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'development',
@@ -12,14 +14,15 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
   },
+  watch:true,
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader"
         ]
       },
       {
@@ -33,6 +36,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new LodashModuleReplacementPlugin
+    new LodashModuleReplacementPlugin,
+    new MiniCssExtractPlugin({
+      filename: "dist/bundle.css",
+      chunkFilename: "bundle1.css"
+    })
   ]
 }
+

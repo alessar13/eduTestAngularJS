@@ -7,8 +7,7 @@ body{
     justify-content: center;
     align-items: flex-start;
     margin: 0;
-    padding: 0;    
-    background-color: red;
+    padding: 0;
 }
 .wrapper{
     display:flex;
@@ -52,7 +51,6 @@ body{
 
             button {
                 border: 0;
-                outline: 2px solid yellow;
             }
 
             .control {
