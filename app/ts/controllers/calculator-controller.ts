@@ -9,15 +9,15 @@ export default class CalculatorController {
 		$scope.output = '0';
 		$scope.newNumber = true;
 		$scope.pendingOperation = null;
-		$scope.operationToken = "";
+		$scope.operationToken = "+";
 		$scope.runningTotal = null;
 		$scope.pendingValue = null;
 		$scope.lastOperation = null;
 
-		// let ADD = '+';
-		// let ADD = '+';
-		// let ADD = '+';
-		// let ADD = '+';
+		let ADD = "adding";
+		let SUBTRACT = "subtracting";
+		let ADD_TOKEN = "+";
+		let SUBTRACT_TOKEN = "-";
 		
 
 		$scope.reset = function(){ 
@@ -30,9 +30,17 @@ export default class CalculatorController {
 		$scope.changeSign = () => {
 			return ($scope.output > 0 && $scope.output != 0) ? $scope.output *= -1 : $scope.output = Number (Math.abs($scope.output));
 			}
-	
-		$scope.percentCount  = () => {console.log('percent')}
+		
+		$scope.outputUpdate = (value: Number) => {
+			($scope.output == "0") ? $scope.output = value : $scope.output += String(value);
+			$scope.pendingValue = Number($scope.output);
+		};	
 
+		$scope.percentCount = () => {
+			
+		}
+	
+		
 		$scope.multiply = () => {
 				
 			}
@@ -68,33 +76,8 @@ export default class CalculatorController {
 			};	
 		};
 
-    	$scope.outputUpdate = (value: Number) => {
-			($scope.output == "0") ? $scope.output = value : $scope.output += String(value);
-			$scope.pendingValue = Number($scope.output);
-		};
+    	
 
 		$scope.equals = () => {console.log('Govinda')}
-
-
-
-	// 	setOperationToken = function(operation) {
-	// 		if(operation == '+') {
-	// 		  $scope.operationToken = ADD_TOKEN;
-	// 		} else if (operation == SUBTRACT) {
-	// 		  $scope.operationToken = SUBTRACT_TOKEN;
-	// 		} else {
-	// 		  $scope.operationToken = "";
-	// 		}
-	// 	  };
-		
-		
-	// }
-	
-
+	}
 }
-
-
-
-
-
-
