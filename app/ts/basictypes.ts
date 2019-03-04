@@ -3,10 +3,10 @@ import { types } from "util";
 import { stringify } from "querystring";
 
 
-let govinda: string = 'Govinda';
-let govinda1: string;
-let myAge = 27;
-myAge = 28;
+// let govinda: string = 'Govinda';
+// let govinda1: string;
+// let myAge = 27;
+// myAge = 28;
 
 console.log(myAge);
 console.log(govinda);

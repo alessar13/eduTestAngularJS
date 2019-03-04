@@ -9,9 +9,16 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "declaration": true,
+<<<<<<< HEAD
         "outDir": "./dist",
         "declarationDir": "./dist/types",
         "noEmitOnError": true
+=======
+        "outDir": "../dist",
+        "declarationDir": "../dist/types",
+        "experimentalDecorators": true,
+        "strictPropertyInitialization": false
+>>>>>>> b41eebe6163369d29233f94a6c974ff31515e96a
     },
 
     "include": [
