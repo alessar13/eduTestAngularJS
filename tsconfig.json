@@ -10,7 +10,9 @@
         "moduleResolution": "node",
         "declaration": true,
         "outDir": "../dist",
-        "declarationDir": "../dist/types"
+        "declarationDir": "../dist/types",
+        "experimentalDecorators": true,
+        "strictPropertyInitialization": false
     },
 
     "include": [
