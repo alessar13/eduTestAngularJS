@@ -51,29 +51,29 @@
 /// Parameter Decorator
 
 
-function edit(value: boolean) {
-    return function(target: any, propName: string, descriptor: PropertyDescriptor){
-            descriptor.writable = value;
-    }
-}
-class Project {
+// function edit(value: boolean) {
+//     return function(target: any, propName: string, descriptor: PropertyDescriptor){
+//             descriptor.writable = value;
+//     }
+// }
+// class Project {
 
-    projectName: string;
+//     projectName: string;
 
-    constructor(name: string) { 
-       this.projectName = name;
-    }
+//     constructor(name: string) { 
+//        this.projectName = name;
+//     }
 
-    // @edit(false)
-    calcBudget() {
-        console.log(1000);
-    }
-}
+//     // @edit(false)
+//     calcBudget() {
+//         console.log(1000);
+//     }
+// }
 
-let proj = new Project('Govinda');
-console.log(proj);
-proj.calcBudget();
-proj.calcBudget = function() {
-    console.log(2000)
-}
-proj.calcBudget();
+// let proj = new Project('Govinda');
+// console.log(proj);
+// proj.calcBudget();
+// proj.calcBudget = function() {
+//     console.log(2000)
+// }
+// proj.calcBudget();
