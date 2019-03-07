@@ -9,14 +9,19 @@
     </head>
     <body>
 
-        <div ng-controller="basicController">
-            {{name}}
+        <div ng-controller="phoneController">
+            <p>Name: {{phone.name}}</p>
+            <p>Price: {{phone.price}} $</p>
+            <p>Brand: {{phone.company.name}}</p>
+            <p>Country: {{phone.company.country}}</p>
         </div>
-        
-        
-        
-        
-        <script>console.log('Govinda')</script>
+<hr>
+<hr>
+        <div ng-controller="phoneController">
+            <span ng-bind="phone.name"></span>
+        </div>
+            
+            </script>
     </body>
 </html>
 
