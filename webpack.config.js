@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 
+  mode: 'development',
   entry: './app/app.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -39,7 +40,7 @@ module.exports = {
     new LodashModuleReplacementPlugin,
     new MiniCssExtractPlugin({
       filename: "dist/bundle.css",
-      chunkFilename: "bundle.css"
+      chunkFilename: "bundles.css"
     })
   ]
 }
