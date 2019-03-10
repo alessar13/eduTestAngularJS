@@ -1,2 +1,0 @@
-# eduTestAngularJS
-AngularJS educational project
