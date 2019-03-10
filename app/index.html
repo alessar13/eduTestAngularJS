@@ -20,7 +20,7 @@
     <input type="text" ng-model="text">
     <p>{{text}}</p>
 
-    <h1>Hello, <span ng-if="text">{{text}}</span>
+    <h1 ng-class="{'new-class: text'}">Hello, <span ng-if="text">{{text}}</span>
                 <span ngif="!text">World!</span>
     </h1>
 
